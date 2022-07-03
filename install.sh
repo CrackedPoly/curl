@@ -1,6 +1,5 @@
 #!/bin/bash
-./configure --with-ssl --prefix=$PWD/build
+./configure --with-ssl --prefix=$PWD/build --disable-shared
 make
 make install
-./build/bin/curl ifconfig.co
-./build/bin/curl ifconfig.co --socks5 127.0.0.1:10808
+./build/bin/curl ifconfig.co -x socks5h://adm1n:paSSw0rd@hk.crackpoly.life:8888 -v
