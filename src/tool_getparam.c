@@ -182,6 +182,7 @@ static const struct LongShort aliases[]= {
   {"$Q", "proto-default",            TRUE},
   {"$R", "expect100-timeout",        TRUE},
   {"$S", "tftp-no-options",          FALSE},
+  {"$$", "x-forwarded-to",           FALSE},
   {"$U", "connect-to",               TRUE},
   {"0",   "http1.0",                 FALSE},
   {"01",  "http1.1",                 FALSE},
@@ -807,7 +808,7 @@ ParameterError getparameter(char *flag,    /* f or -long-flag */
         GetStr(&config->proxy, nextarg);
         config->proxyver = CURLPROXY_SOCKS4;
         break;
-      case 'T': /* --socks4a specifies a socks4a proxy to use */
+      case '$': /* --socks4a specifies a socks4a proxy to use */
         GetStr(&config->proxy, nextarg);
         config->proxyver = CURLPROXY_SOCKS4A;
         break;
@@ -1048,6 +1049,9 @@ ParameterError getparameter(char *flag,    /* f or -long-flag */
         break;
       case 'S': /* --tftp-no-options */
         config->tftp_no_options = toggle;
+        break;
+      case '$': /* --x-forwarded-to */
+        config->x_forwarded_to = TRUE;
         break;
       case 'U': /* --connect-to */
         err = add2list(&config->connect_to, nextarg);
