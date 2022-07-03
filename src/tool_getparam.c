@@ -808,10 +808,6 @@ ParameterError getparameter(char *flag,    /* f or -long-flag */
         GetStr(&config->proxy, nextarg);
         config->proxyver = CURLPROXY_SOCKS4;
         break;
-      case '$': /* --socks4a specifies a socks4a proxy to use */
-        GetStr(&config->proxy, nextarg);
-        config->proxyver = CURLPROXY_SOCKS4A;
-        break;
       case '2': /* --socks5-hostname specifies a socks5 proxy and enables name
                    resolving with the proxy */
         GetStr(&config->proxy, nextarg);
