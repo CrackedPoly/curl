@@ -85,6 +85,7 @@ struct OperationConfig {
   char *proxy;
   int proxyver;             /* set to CURLPROXY_HTTP* define */
   char *noproxy;
+  bool x_forwarded_to;
   char *mail_from;
   struct curl_slist *mail_rcpt;
   char *mail_auth;

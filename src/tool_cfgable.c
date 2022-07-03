@@ -80,6 +80,7 @@ static void free_config_fields(struct OperationConfig *config)
   Curl_safefree(config->dns_servers);
 
   Curl_safefree(config->noproxy);
+  Curl_safefree(config->x_forwarded_to);
 
   Curl_safefree(config->mail_from);
   curl_slist_free_all(config->mail_rcpt);
